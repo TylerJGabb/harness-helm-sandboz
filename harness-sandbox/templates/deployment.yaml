@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: "example-deploy"
+  name: "example-deploy"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "example-deploy"
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: "example-deploy"
+    spec:
+      containers:
+        - image: "{{ $.Values.image }}"
+          name: "example-container"
