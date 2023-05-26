@@ -3,20 +3,19 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: "example-deploy"
-  name: "example-deploy"
+    app: a-deploy
+  name: a-deploy
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "example-deploy"
-  strategy: {}
+      app: a-deploy
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: "example-deploy"
+        app: a-deploy
     spec:
       containers:
-        - image: "{{ $.Values.image }}"
-          name: "example-container"
+        - image: "{{ .Values.image }}"
+          name: "{{ .Values.image }}"
